@@ -2,8 +2,13 @@
   <div>
     <addBar @allData="addList($event)"></addBar>
    <div class="list-container">
-        <addList @rData="rList($event)" v-for="(todo,index) in todoList" :key="index" :iAdd="todo"></addList>
+        <addList 
+        @rData="rList($event)" 
+        v-for="(todo,index) in todoList" 
+        :key="index" 
+        :iAdd="todo" :index="index"></addList>
     </div>
+
   </div>
 </template>
 
@@ -24,12 +29,16 @@ export default {
     }
   },
   methods:{
-    addList(idata){
-
+  addList(idata){
       this.todoList.push(idata);
-      
+  },
+  rList(rData){
+    this.todoList.splice(rData,1);
   }
 
+},
+mounted(){
+  this.rList();
 }
 }
 

@@ -1,43 +1,23 @@
 <template>
     <div class="list-ele">
-        <button
+        <div
         class="list-cont"
         v-bind:class="{doneC : done}"
         @click="done=!done"
         > 
-            {{ iAdd }}
-    </button>
-        <button class="close" @click="delTask">-</button>
+        {{ iAdd }}
+    </div>
+        <button class="close" @click="$emit('rData',index);">-</button>
     </div>
 </template>
 <script>
 export default{
     name:'addList',
-    props:['iAdd'],
+    props:['iAdd','index'],
     data(){
         return{
             done: false
         }
-
-    },
-    methods:{
-        delTask(){
-            console.log("BUTTON CLICK")
-            let close = document.getElementsByClassName("close");
-            let i;
-            for (i = 0; i < close.length; i++) {
-                close[i].onclick = function() {
-                    console.log("BUTTON CLICK this :",i)
-                    let div2 = this.parentElement;
-                    console.log(div2);
-                    div2.remove();
-                    this.$emit('rData',this.iData);
-                }
-            } 
-        }
-    },
-    mounted(){
-        this.delTask();   
 
     }
 }
