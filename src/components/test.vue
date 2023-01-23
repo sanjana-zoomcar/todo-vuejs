@@ -64,3 +64,29 @@ let close = document.getElementsByClassName("close");
                     div2.remove();
                 }
             } 
+
+
+            console.log("BUTTON CLICK")
+            console.log(this.todoList);
+            let close = document.getElementsByClassName("close");
+            let i;
+            for (i = 0; i < close.length; i++) {
+                close[i].onclick = function() {
+                    console.log("BUTTON CLICK this :",i)
+                    let div2 = this.parentElement;
+                    console.log(div2);
+                    div2.remove();
+                }
+
+
+
+                console.log("BUTTON CLICK")
+            console.log(this.todoList);
+            let close = document.getElementsByClassName("close");
+            let i;
+            for (i = 0; i < close.length; i++) {
+                close[i].onclick = function() {
+                    console.log("BUTTON CLICK this :",i)
+                    let div2 = this.parentElement;
+                    console.log(div2);
+                    div2.remove();} 

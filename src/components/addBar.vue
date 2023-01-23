@@ -15,6 +15,7 @@ export default{
     }, 
     methods:{
         addToList: function(){
+            
             if(this.iData.length>=1){
             this.$emit('allData',this.iData);
             this.iData='';
