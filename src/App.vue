@@ -35,12 +35,25 @@ export default {
   rList(rData){
     this.todoList.splice(rData,1);
   }
-
 },
 mounted(){
-  this.rList();
+  if(localStorage.todoList){
+    this.todoList=JSON.parse(localStorage.todoList);
+  }
+
+},
+watch:{
+  todoList:{
+    handler(newList){
+        localStorage.todoList=JSON.stringify(newList);
+      },
+      deep:true
+
+    }
+  }
 }
-}
+
+
 
 </script>
 
